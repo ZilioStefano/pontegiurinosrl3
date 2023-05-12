@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from ftplib import FTP
 # from django.shortcuts import render
-import pandas as pd
+# import pandas as pd
 # import plotly.express as px
 # import matplotlib.pyplot as plt
 # from io import BytesIO
@@ -20,8 +20,8 @@ def uploadData():
     ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
     gFile.close()
 
-    Data = pd.read_csv("PGDailyPlot.csv")
-    # Data = 0
+    # Data = pd.read_csv("PGDailyPlot.csv")
+    Data = 0
     return Data
 
 
@@ -41,7 +41,7 @@ def index2(request):
 def index(request):
 
     Data = uploadData()
-    # fig = px.line(Data, x="x", y="y", title="Unsorted Input")
+    # fig = px.line(Data, x="t", y="P", title="Unsorted Input")
     # t = pd.to_datetime(Data["t"])
     # Q = Data["Q"]
     # #
@@ -53,7 +53,7 @@ def index(request):
     # ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
 
     # buffer = BytesIO()
-    # plt.savefig(buffer, format='png')
+    # fig.to_html()
     # buffer.seek(0)
     # image_png = buffer.getvalue()
     # buffer.close()
