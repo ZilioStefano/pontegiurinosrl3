@@ -28,10 +28,10 @@ def index(request):
 
 
 
-    Data = uploadData()
-
-    t = pd.to_datetime(Data["t"])
-    Q = Data["Q"]
+    # Data = uploadData()
+    #
+    # t = pd.to_datetime(Data["t"])
+    # Q = Data["Q"]
     #
     # fig, ax = plt.subplots()
     #
