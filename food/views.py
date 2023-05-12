@@ -26,8 +26,8 @@ def uploadData():
 
 def index(request):
 
-    Data = uploadData()
-    #
+    # Data = uploadData()
+    Data = {"Data":"Ciao"}
     # t = pd.to_datetime(Data["t"])
     # Q = Data["Q"]
     #
@@ -45,7 +45,7 @@ def index(request):
     # graphic = graphic.decode('utf-8')
 
     # return render(request, 'index.html', {'graphic': graphic})
-    return render(request, 'index.html', context=None)
+    return render(request, 'index.html', context=Data)
 
 
 # Create your views here.
