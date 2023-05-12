@@ -2,8 +2,8 @@
 from django.shortcuts import render, redirect
 from ftplib import FTP
 # from django.shortcuts import render
-# import pandas as pd
-import matplotlib.pyplot as plt
+import pandas as pd
+# import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
 
@@ -19,8 +19,8 @@ def uploadData():
     ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
     gFile.close()
 
-    # Data = pd.read_csv("PGDailyPlot.csv")
-    Data = 0
+    Data = pd.read_csv("PGDailyPlot.csv")
+    # Data = 0
     return Data
 
 
@@ -41,8 +41,8 @@ def index(request):
 
     Data = uploadData()
 
-    # t = pd.to_datetime(Data["t"])
-    # Q = Data["Q"]
+    t = pd.to_datetime(Data["t"])
+    Q = Data["Q"]
     #
     # fig, ax = plt.subplots()
     #
