@@ -36,11 +36,11 @@ def index(request):
 
     ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
 
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    image_png = buffer.getvalue()
-    buffer.close()
+    # buffer = BytesIO()
+    # plt.savefig(buffer, format='png')
+    # buffer.seek(0)
+    # image_png = buffer.getvalue()
+    # buffer.close()
 
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
