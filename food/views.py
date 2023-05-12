@@ -59,7 +59,7 @@ def index(request):
     Data = {"Data":"Ciao"}
 
     # return render(request, 'index.html', {'graphic': graphic})
-    return render(request, 'index2.html', context=None)
+    return render(request, 'index.html', context=Data)
 
 
 # Create your views here.
