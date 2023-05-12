@@ -2,9 +2,9 @@
 from django.shortcuts import render, redirect
 from ftplib import FTP
 import pandas as pd
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
+# import matplotlib.pyplot as plt
+# from io import BytesIO
+# import base64
 
 def uploadData():
 
@@ -32,9 +32,10 @@ def index(request):
 
     t = pd.to_datetime(Data["t"])
     Q = Data["Q"]
-    fig, ax = plt.subplots()
-
-    ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
+    #
+    # fig, ax = plt.subplots()
+    #
+    # ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
 
     # buffer = BytesIO()
     # plt.savefig(buffer, format='png')
