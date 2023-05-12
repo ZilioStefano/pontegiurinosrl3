@@ -8,17 +8,17 @@ from ftplib import FTP
 
 def uploadData():
 #
-#     # ftp = FTP("192.168.10.211", timeout=120)
-#     ftp = FTP("93.33.192.68", timeout=120)
-#
-#     ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
-#     ftp.cwd('/dati/ponte_giurino')
-#
-#     gFile = open('PGDailyPlot.csv', "wb")
-#     ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
-#     gFile.close()
-#
-#     # Data = pd.read_csv("PGDailyPlot.csv")
+    # ftp = FTP("192.168.10.211", timeout=120)
+    ftp = FTP("93.33.192.68", timeout=120)
+
+    ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
+    ftp.cwd('/dati/ponte_giurino')
+
+    gFile = open('PGDailyPlot.csv', "wb")
+    ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
+    gFile.close()
+
+    # Data = pd.read_csv("PGDailyPlot.csv")
     Data = 0
     return Data
 
@@ -26,8 +26,7 @@ def uploadData():
 
 def index(request):
 
-    # Data = uploadData()
-    Data = {"Data":"Ciao"}
+    Data = uploadData()
     # t = pd.to_datetime(Data["t"])
     # Q = Data["Q"]
     #
@@ -43,6 +42,7 @@ def index(request):
 
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
+    Data = {"Data":"Ciao"}
 
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index.html', context=Data)
