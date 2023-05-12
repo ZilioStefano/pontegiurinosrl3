@@ -18,8 +18,8 @@ def uploadData():
     ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
     gFile.close()
 
-    Data = pd.read_csv("PGDailyPlot.csv")
-    # Data = 0
+    # Data = pd.read_csv("PGDailyPlot.csv")
+    Data = 0
     return Data
 
 
