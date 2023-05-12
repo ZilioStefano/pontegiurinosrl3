@@ -1,8 +1,8 @@
 # food/views.py
 from django.shortcuts import render, redirect
 from ftplib import FTP
-# import pandas as pd
-# import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
 
@@ -18,8 +18,8 @@ def uploadData():
     ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
     gFile.close()
 
-    # Data = pd.read_csv("PGDailyPlot.csv")
-    Data = 0
+    Data = pd.read_csv("PGDailyPlot.csv")
+    # Data = 0
     return Data
 
 
@@ -27,12 +27,13 @@ def uploadData():
 def index(request):
 
     Data = uploadData()
-    # t = pd.to_datetime(Data["t"])
-    # Q = Data["Q"]
-    #
-    # fig, ax = plt.subplots()
-    #
-    # ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
+
+    t = pd.to_datetime(Data["t"])
+    Q = Data["Q"]
+
+    fig, ax = plt.subplots()
+
+    ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
 
     # buffer = BytesIO()
     # plt.savefig(buffer, format='png')
