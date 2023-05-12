@@ -6,7 +6,7 @@ from ftplib import FTP
 # from io import BytesIO
 # import base64
 
-# def uploadData():
+def uploadData():
 #
 #     # ftp = FTP("192.168.10.211", timeout=120)
 #     ftp = FTP("93.33.192.68", timeout=120)
@@ -19,8 +19,8 @@ from ftplib import FTP
 #     gFile.close()
 #
 #     # Data = pd.read_csv("PGDailyPlot.csv")
-#     # Data = 0
-#     return Data
+    Data = 0
+    return Data
 
 
 
