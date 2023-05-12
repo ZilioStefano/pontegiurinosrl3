@@ -40,7 +40,7 @@ def index2(request):
 def index(request):
 
     Data = uploadData()
-
+    # fig = px.line(df, x="x", y="y", title="Unsorted Input")
     # t = pd.to_datetime(Data["t"])
     # Q = Data["Q"]
     # #
