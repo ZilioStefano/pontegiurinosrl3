@@ -26,7 +26,7 @@ def uploadData():
 
 def index(request):
 
-    # Data = uploadData()
+    Data = uploadData()
     #
     # t = pd.to_datetime(Data["t"])
     # Q = Data["Q"]
