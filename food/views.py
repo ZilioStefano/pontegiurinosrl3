@@ -46,7 +46,7 @@ def index(request):
     # Q = Data["Q"]
     # #
     #
-    Data.plot(kind='scatter', x='t', y='Q')
+    Data.plot(kind='scatter', x='t', y='P')
 
     # fig, ax = plt.subplots()
     #
@@ -60,7 +60,7 @@ def index(request):
 
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
-    Data = {"Data":A}
+    Data = {"Data": A}
 
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index3.html', context=Data)
