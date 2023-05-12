@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from ftplib import FTP
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
 
