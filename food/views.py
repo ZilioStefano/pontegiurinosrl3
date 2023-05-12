@@ -1,8 +1,9 @@
 # food/views.py
 from django.shortcuts import render, redirect
 from ftplib import FTP
-import pandas as pd
-import matplotlib.pyplot as plt
+# from django.shortcuts import render
+# import pandas as pd
+# import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
 
@@ -23,6 +24,18 @@ def uploadData():
     return Data
 
 
+def index2(request):
+    stepcount = [
+        {"y": 10560, "label": "Sunday"},
+        {"y": 9060, "label": "Monday"},
+        {"y": 6650, "label": "Tuesday"},
+        {"y": 8305, "label": "Wednesday"},
+        {"y": 8531, "label": "Thursday"},
+        {"y": 10150, "label": "Friday"},
+        {"y": 8921, "label": "Saturday"}
+    ]
+
+    return render(request, 'index2.html', {"stepcount": stepcount})
 
 def index(request):
 
@@ -46,7 +59,7 @@ def index(request):
     Data = {"Data":"Ciao"}
 
     # return render(request, 'index.html', {'graphic': graphic})
-    return render(request, 'index.html', context=Data)
+    return render(request, 'index2.html', context=None)
 
 
 # Create your views here.

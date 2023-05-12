@@ -4,5 +4,5 @@ from food import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index2, name='index'),
 ]
