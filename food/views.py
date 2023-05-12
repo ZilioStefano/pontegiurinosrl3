@@ -45,8 +45,8 @@ def index(request):
     graphic = base64.b64encode(image_png)
     graphic = graphic.decode('utf-8')
 
-    return render(request, 'index.html', {'graphic': graphic})
-    # return render(request, 'index.html', context=None)
+    # return render(request, 'index.html', {'graphic': graphic})
+    return render(request, 'index.html', context=None)
 
 
 # Create your views here.
