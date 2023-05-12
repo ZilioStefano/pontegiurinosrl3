@@ -2,7 +2,9 @@
 from django.shortcuts import render, redirect
 from ftplib import FTP
 import pandas as pd
-
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
 
 def uploadData():
 
@@ -30,9 +32,21 @@ def index(request):
 
     t = pd.to_datetime(Data["t"])
     Q = Data["Q"]
-    Grafico = Data.plot(kind = "scatter", x = "t", y ="Q")
+    fig, ax = plt.subplots()
 
-    return render(request, 'index.html', context=None)
+    ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
+
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    image_png = buffer.getvalue()
+    buffer.close()
+
+    graphic = base64.b64encode(image_png)
+    graphic = graphic.decode('utf-8')
+
+    return render(request, 'index.html', {'graphic': graphic})
+    # return render(request, 'index.html', context=None)
 
 
 # Create your views here.
