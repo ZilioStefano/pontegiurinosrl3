@@ -28,12 +28,12 @@ def index(request):
 
     Data = uploadData()
 
-    t = pd.to_datetime(Data["t"])
-    Q = Data["Q"]
-
-    fig, ax = plt.subplots()
-
-    ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
+    # t = pd.to_datetime(Data["t"])
+    # Q = Data["Q"]
+    #
+    # fig, ax = plt.subplots()
+    #
+    # ax.plot(t, Q, lw=1.5, label="Potenza [kW]", color="red")
 
     # buffer = BytesIO()
     # plt.savefig(buffer, format='png')
