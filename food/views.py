@@ -100,5 +100,4 @@ def index(request):
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index3.html', context=Data)
 
-
 # Create your views here.
