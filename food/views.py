@@ -5,6 +5,7 @@ from ftplib import FTP
 import pandas as pd
 import plotly.express as px
 from plotly.subplots import make_subplots
+from num2string_001 import convertNumber
 # import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
@@ -48,6 +49,16 @@ def index(request):
 
     P = Data["P"]
     lastP = P[len(P)-1]
+    lastPString, dummy = convertNumber(lastP,"Power","HTML")
+
+    Q = Data["Q"]
+    lastQ = Q[len(Q)-1]
+    lastQString, dummy = convertNumber(lastQ,"Charge","HTML")
+
+    time = Data["t"]
+    lastT = time[len(time)-1]
+
+
 
     if lastP>0:
 
@@ -95,7 +106,8 @@ def index(request):
 
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
-    Data = {"Grafico": A,"StatoTurbina":StatoTurbina}
+
+    Data = {"Grafico": A,"StatoTurbina":StatoTurbina,"lastT":str(lastT),"lastQ":lastQString,"lastP":lastPString}
 
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index3.html', context=Data)
