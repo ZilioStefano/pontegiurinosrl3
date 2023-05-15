@@ -11,8 +11,11 @@ from plotly.subplots import make_subplots
 
 def uploadData():
 #
-    # ftp = FTP("192.168.10.211", timeout=120)
-    ftp = FTP("93.33.192.68", timeout=120)
+    try:
+        ftp = FTP("192.168.10.211", timeout=120)
+        # ftp = FTP("93.33.192.68", timeout=120)
+    except:
+        ftp = FTP("93.33.192.68", timeout=120)
 
     ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
     ftp.cwd('/dati/ponte_giurino')
@@ -42,6 +45,19 @@ def index2(request):
 def index(request):
 
     Data = uploadData()
+
+    P = Data["P"]
+    lastP = P[len(P)-1]
+
+    if lastP>0:
+
+        StatoTurbina = "In produzione!"
+
+    elif lastP == 0:
+
+        StatoTurbina = "Ferma!"
+
+
     fig = px.line(Data, x="t", y="P")
 
     subfig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -79,7 +95,7 @@ def index(request):
 
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
-    Data = {"Data": A}
+    Data = {"Grafico": A,"StatoTurbina":StatoTurbina}
 
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index3.html', context=Data)
