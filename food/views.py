@@ -16,22 +16,23 @@ def uploadData():
 
     # ftp = FTPLogIn()
     # ftp = FTP("93.33.192.68", timeout=120)
-    try:
 
-        ftp = FTP("192.168.10.211", timeout=120)
-
-    except:
-
-        ftp = FTP("93.33.192.68", timeout=120)
-
-    ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
-    ftp.cwd('/dati/ponte_giurino')
-
-    ftp.cwd('/dati/ponte_giurino')
-
-    gFile = open('PGDailyPlot.csv', "wb")
-    ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
-    gFile.close()
+    # try:
+    #
+    #     ftp = FTP("192.168.10.211", timeout=120)
+    #
+    # except:
+    #
+    #     ftp = FTP("93.33.192.68", timeout=120)
+    #
+    # ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
+    # ftp.cwd('/dati/ponte_giurino')
+    #
+    # ftp.cwd('/dati/ponte_giurino')
+    #
+    # gFile = open('PGDailyPlot.csv', "wb")
+    # ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
+    # gFile.close()
 
     Data = pd.read_csv("PGDailyPlot.csv")
     # Data = 0
