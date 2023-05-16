@@ -15,11 +15,11 @@ from num2string_001 import convertNumber
 def uploadData():
 
     # ftp = FTPLogIn()
-    ftp = FTP("93.33.192.68", timeout=120)
+    # ftp = FTP("93.33.192.68", timeout=120)
 
     # try:
     #
-    # ftp = FTP("192.168.10.211", timeout=120)
+    ftp = FTP("192.168.10.211", timeout=120)
     #
     # except:
     #
@@ -66,11 +66,11 @@ def index(request):
 
 
     fig = px.line(Data, x="t", y="P")
-    fig.update_yaxes(range=[0, 235.39])
+    fig.update_yaxes(range=[min(0,PMin), max(200,PMax)])
 
     subfig = make_subplots(specs=[[{"secondary_y": True}]])
     fig2 = px.line(Data, x="t", y="Q")
-    fig2.update_yaxes(range=[0, 70])
+    # fig2.update_yaxes(range=[min(0, QMin), max(80, QMax)])
     fig2.update_traces(yaxis="y2")
 
     # subfig = fig.data + fig2.data
@@ -81,7 +81,7 @@ def index(request):
     subfig.layout.yaxis.color = "red"
     subfig.layout.yaxis2.title = "Portata [l/s]"
     subfig.layout.yaxis2.color = "blue"
-    subfig.update_layout({'yaxis':{'range': [min(0,PMin), max(235.39,PMax)]}})
+    subfig.update_layout({'yaxis':{'range': [min(0,PMin), max(200,PMax)]}})
     subfig.update_layout({'yaxis2':{'range': [min(0,QMin), max(80,QMax)]}})
 
     subfig.for_each_trace(lambda t: t.update(line=dict(color=t.marker.color)))
