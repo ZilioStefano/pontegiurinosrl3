@@ -142,7 +142,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-secrets.py
+food/secrets.py
 
 # Pyre type checker
 .pyre/
