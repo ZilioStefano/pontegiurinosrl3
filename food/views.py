@@ -39,6 +39,7 @@ def uploadData():
 
 
 def index2(request):
+
     stepcount = [
         {"y": 10560, "label": "Sunday"},
         {"y": 9060, "label": "Monday"},
