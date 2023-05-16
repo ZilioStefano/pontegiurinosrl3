@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+secrets.py
 
 # C extensions
 *.so
@@ -142,7 +143,6 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-food/secrets.py
 
 # Pyre type checker
 .pyre/
