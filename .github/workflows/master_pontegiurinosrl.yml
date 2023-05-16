@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'pontegiurinosrl'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D46386D764564D62BE8084AF8E63C57A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D8023693507B4854ACEBCB2D6FCBEC79 }}
