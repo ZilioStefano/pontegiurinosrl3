@@ -73,9 +73,11 @@ def index(request):
 
 
     fig = px.line(Data, x="t", y="P")
+    fig.update_yaxes(range=[0, 235.39])
 
     subfig = make_subplots(specs=[[{"secondary_y": True}]])
     fig2 = px.line(Data, x="t", y="Q")
+    fig2.update_yaxes(range=[0, 70])
     fig2.update_traces(yaxis="y2")
 
     # subfig = fig.data + fig2.data
