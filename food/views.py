@@ -38,20 +38,6 @@ from num2string_001 import convertNumber
 #     # Data = 0
 #     return Data
 
-def index2(request):
-
-    stepcount = [
-        {"y": 10560, "label": "Sunday"},
-        {"y": 9060, "label": "Monday"},
-        {"y": 6650, "label": "Tuesday"},
-        {"y": 8305, "label": "Wednesday"},
-        {"y": 8531, "label": "Thursday"},
-        {"y": 10150, "label": "Friday"},
-        {"y": 8921, "label": "Saturday"}
-    ]
-
-    return render(request, 'index2.html', {"stepcount": stepcount})
-
 def index(request):
 
     # Data = uploadData()
