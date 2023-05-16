@@ -19,8 +19,9 @@ def uploadData():
     try:
 
         ftp = FTP("192.168.10.211", timeout=120)
-        # ftp = FTP("93.33.192.68", timeout=120)
+
     except:
+
         ftp = FTP("93.33.192.68", timeout=120)
 
     ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
