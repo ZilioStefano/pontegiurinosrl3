@@ -15,8 +15,9 @@ from num2string_001 import convertNumber
 def uploadData():
 
     # ftp = FTPLogIn()
-#
+    # ftp = FTP("93.33.192.68", timeout=120)
     try:
+
         ftp = FTP("192.168.10.211", timeout=120)
         # ftp = FTP("93.33.192.68", timeout=120)
     except:
