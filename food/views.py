@@ -63,9 +63,6 @@ def index(request):
 
     time = Data["t"]
     lastT = time[len(time)-1]
-
-
-
     if lastP>0:
 
         StatoTurbina = "In produzione!"
@@ -113,7 +110,7 @@ def index(request):
     # graphic = base64.b64encode(image_png)
     # graphic = graphic.decode('utf-8')
 
-    Data = {"Grafico": A,"StatoTurbina":StatoTurbina,"lastT":str(lastT),"lastQ":lastQString,"lastP":lastPString}
+    Data = {"Grafico": A, "StatoTurbina": StatoTurbina, "lastT": str(lastT), "lastQ": lastQString, "lastP": lastPString}
 
     # return render(request, 'index.html', {'graphic': graphic})
     return render(request, 'index3.html', context=Data)
