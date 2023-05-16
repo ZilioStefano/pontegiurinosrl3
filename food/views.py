@@ -1,24 +1,30 @@
 # food/views.py
 from django.shortcuts import render, redirect
-from ftplib import FTP
+# from ftplib import FTP
 # from django.shortcuts import render
 import pandas as pd
 import plotly.express as px
 from plotly.subplots import make_subplots
 from num2string_001 import convertNumber
+from .FTPLogIn import FTPLogIn
+
 # import matplotlib.pyplot as plt
 # from io import BytesIO
 # import base64
 
 def uploadData():
-#
-    try:
-        ftp = FTP("192.168.10.211", timeout=120)
-        # ftp = FTP("93.33.192.68", timeout=120)
-    except:
-        ftp = FTP("93.33.192.68", timeout=120)
 
-    ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
+    ftp = FTPLogIn()
+#
+    # try:
+    #     ftp = FTP("192.168.10.211", timeout=120)
+    #     # ftp = FTP("93.33.192.68", timeout=120)
+    # except:
+    #     ftp = FTP("93.33.192.68", timeout=120)
+    #
+    # ftp.login('ftpdaticentzilio', 'Sd2PqAS.We8zBK')
+    # ftp.cwd('/dati/ponte_giurino')
+
     ftp.cwd('/dati/ponte_giurino')
 
     gFile = open('PGDailyPlot.csv', "wb")
