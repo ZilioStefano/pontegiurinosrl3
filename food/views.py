@@ -54,10 +54,14 @@ def index(request):
     Data = uploadData()
 
     P = Data["P"]
+    PMax = max(P)
+    PMin = min(P)
     lastP = P[len(P)-1]
     lastPString, dummy = convertNumber(lastP,"Power","HTML")
 
     Q = Data["Q"]
+    QMax = max(Q)
+    QMin = min(Q)
     lastQ = Q[len(Q)-1]
     lastQString, dummy = convertNumber(lastQ,"Charge","HTML")
 
@@ -88,6 +92,8 @@ def index(request):
     subfig.layout.yaxis.color = "red"
     subfig.layout.yaxis2.title = "Portata [l/s]"
     subfig.layout.yaxis2.color = "blue"
+    subfig.update_layout({'yaxis':{'range': [min(0,PMin), max(235.39,PMax)]}})
+    subfig.update_layout({'yaxis2':{'range': [min(0,QMin), max(80,QMax)]}})
 
     subfig.for_each_trace(lambda t: t.update(line=dict(color=t.marker.color)))
 
