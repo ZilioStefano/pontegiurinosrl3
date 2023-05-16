@@ -96,7 +96,7 @@ def index(request):
     subfig.update_layout({'yaxis2':{'range': [min(0,QMin), max(80,QMax)]}})
 
     subfig.for_each_trace(lambda t: t.update(line=dict(color=t.marker.color)))
-    subfig.update_layout(height=600, width=800)
+    subfig.update_layout(height=1200, width=1600)
     # subfig.update_layout(showlegend=True)
 
     # t = pd.to_datetime(Data["t"])
