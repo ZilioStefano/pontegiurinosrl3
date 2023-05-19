@@ -15,11 +15,11 @@ from num2string_001 import convertNumber
 def uploadData():
 
     # ftp = FTPLogIn()
-    ftp = FTP("93.33.192.68", timeout=120)
+    # ftp = FTP("93.33.192.68", timeout=120)
 
     # try:
     #
-    # ftp = FTP("192.168.10.211", timeout=120)
+    ftp = FTP("192.168.10.211", timeout=120)
     #
     # except:
     #
@@ -67,11 +67,13 @@ def index(request):
 
     fig = px.line(Data, x="t", y="P")
     fig.update_yaxes(range=[min(0,PMin), max(200,PMax)])
+    fig.update_traces(line_color='red')
 
     subfig = make_subplots(specs=[[{"secondary_y": True}]])
     fig2 = px.line(Data, x="t", y="Q")
     # fig2.update_yaxes(range=[min(0, QMin), max(80, QMax)])
     fig2.update_traces(yaxis="y2")
+    fig2.update_traces(line_color='blue')
 
     # subfig = fig.data + fig2.data
     subfig.add_traces(fig.data + fig2.data)
@@ -84,7 +86,7 @@ def index(request):
     subfig.update_layout({'yaxis':{'range': [min(0,PMin), max(200,PMax)]}})
     subfig.update_layout({'yaxis2':{'range': [min(0,QMin), max(80,QMax)]}})
 
-    subfig.for_each_trace(lambda t: t.update(line=dict(color=t.marker.color)))
+    # subfig.for_each_trace(lambda t: t.update(line=dict(color=t.marker.color)))
     subfig.update_layout(height=1200, width=1600)
     # subfig.update_layout(showlegend=True)
 
