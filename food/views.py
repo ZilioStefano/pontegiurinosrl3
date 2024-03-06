@@ -15,11 +15,11 @@ from num2string_001 import convertNumber
 def uploadData():
 
     # ftp = FTPLogIn()
-    ftp = FTP("93.33.192.68", timeout=120)
+    # ftp = FTP("93.33.192.68", timeout=120)
 
     # try:
     #
-    # ftp = FTP("192.168.10.211", timeout=120)
+    ftp = FTP("192.168.10.211", timeout=120)
     #
     # except:
     #
@@ -30,13 +30,14 @@ def uploadData():
 
     ftp.cwd('/dati/ponte_giurino')
 
-    gFile = open('PGDailyPlot.csv', "wb")
-    ftp.retrbinary('RETR PGDailyPlot.csv', gFile.write)
+    gFile = open('PGlast24hTL.csv', "wb")
+    ftp.retrbinary('RETR PGlast24hTL.csv', gFile.write)
     gFile.close()
 
-    Data = pd.read_csv("PGDailyPlot.csv")
+    Data = pd.read_csv("PGlast24hTL.csv")
     # Data = 0
     return Data
+
 
 def index(request):
 
@@ -48,7 +49,7 @@ def index(request):
     lastP = P[len(P)-1]
     lastPString, dummy = convertNumber(lastP,"Power","HTML")
 
-    Q = Data["Q"]
+    Q = 1000 * Data["Q"]
     QMax = max(Q)
     QMin = min(Q)
     lastQ = Q[len(Q)-1]
@@ -64,13 +65,12 @@ def index(request):
 
         StatoTurbina = "Ferma!"
 
-
     fig = px.line(Data, x="t", y="P")
     fig.update_yaxes(range=[min(0,PMin), max(200,PMax)])
     fig.update_traces(line_color='red')
 
     subfig = make_subplots(specs=[[{"secondary_y": True}]])
-    fig2 = px.line(Data, x="t", y="Q")
+    fig2 = px.line(None, time, y=Q)
     # fig2.update_yaxes(range=[min(0, QMin), max(80, QMax)])
     fig2.update_traces(yaxis="y2")
     fig2.update_traces(line_color='blue')
